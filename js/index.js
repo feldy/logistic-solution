@@ -1,6 +1,8 @@
 function onChangeTujuan(value) {
 	var harga = value.harga;
+	var lama = value.lama_hari;
 	$('#harga').numberbox('setValue', harga);
+	$('#lamaHari').val(lama);
 }
 function onChangeHarga(value) {
 	
@@ -44,8 +46,8 @@ function onClickPackingKayu(value) {
 function onChangeHasilVolum(value) {
 	var volum = value*1;
 	var kilogram = $('#berat').numberbox('getValue')*1;
-	if (volum > kilogram) {		
-		volum = volum;
+	if (kilogram > volum) {		
+		volum = kilogram;
 	}
 	$('#charge').numberbox('setValue', volum);
 }
@@ -65,9 +67,9 @@ function onChangeVolumKayu(value) {
 	}
 }
 function onChangeVolum(value) {
-	var panjang = $('#panjang').numberbox('getValue');
-	var tinggi = $('#lebar').numberbox('getValue');
-	var lebar = $('#tinggi').numberbox('getValue');
+	var panjang = $('#panjang').numberbox('getValue')*1;
+	var tinggi = $('#lebar').numberbox('getValue')*1;
+	var lebar = $('#tinggi').numberbox('getValue')*1;
 
 	if (panjang != 0 && tinggi != 0 && lebar != 0) {
 		var val = 6000;

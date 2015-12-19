@@ -20,12 +20,13 @@
 	$lebarPacking = "";
 	$tinggiPacking = "";
 	$beratPacking = "";
-	$biaya = "";
+	$biayac  = "";
 	if (isset($_POST['step'])) {
 		$step = $_POST['step']; 
 
 
 		//value
+		$lamaHari = $_POST['lamaHari'];
 		$paket = $_POST['paket'];
 		$layanan = $_POST['layanan'];
 		$tujuan = $_POST['tujuan'];
@@ -47,6 +48,8 @@
 		$tinggiPacking = $_POST['tinggiPacking'];
 		$beratPacking = $_POST['beratPacking'];
 		$biaya = $_POST['biaya'];
+
+		include "system/save.php";
 	}
 ?>
 
@@ -105,6 +108,7 @@
 		                <td>Charge Berat:</td>
 		                <td>
 		                	<input value="<?php echo $charge;?>" class="easyui-numberbox" style="width:95px;" type="text" name="charge" id="charge" data-options="readonly: true, precision:0, groupSeparator:',', buttonText:'Kg', onChange: onChangeCharge"></input>
+		                	<input value="<?php echo $lamaHari;?>" style="width:95px;" type="hidden" name="lamaHari" id="lamaHari" ></input>
 		            	</td>
 		            </tr>
 		            <tr>
@@ -288,7 +292,7 @@
 	    <div style="text-align:center;padding:5px">
 	         <div style="text-align:center;padding:5px">
 			        <button class="easyui-linkbutton" type="button">Clear</button>
-					<button class="easyui-linkbutton" type="button" name="step" onclick="print()">Print</button>
+					<button class="easyui-linkbutton" type="submit" name="step" value="10" >Simpan</button>
 			    </div>
 	    </div>
 	    </div>

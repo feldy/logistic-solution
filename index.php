@@ -1,3 +1,6 @@
+<?php 
+	include("config/configuration.php");
+?>
 <!DOCTYPE html>
 <html>
 	<head>
@@ -20,7 +23,11 @@
 			<tr><td>
 				<?php 
 					if (isset($_GET['page'])) {
-						if ($_GET['page'] == "order") {
+						if ($_GET['page'] == "report") {
+							include 'form/report.php';
+						} else if ($_GET['page'] == "print") {
+							include 'form/print.php';
+						} else if ($_GET['page'] == "order") {
 							include 'form/order.php';
 						} else {
 							echo '<span style="font-size: 150%;">404 Not Found<hr></span>';
@@ -38,7 +45,8 @@
 				<p>4. Charge Berat Yang Dibebankan, Diambil Dari Hasil Penghitungan Yang Paling Tinggi. Apabila Penghitungan Secara Volumetrik Menunjukan Hasil Yang Lebih Tinggi, Maka Hasil Penghitungan Volumetrik Yang Akan Digunakan Sebagai Charge Berat</p>
 				<p>5. Untuk Request Order Pengambilan Barang Harap Menghubungi Call Center Kami.</p>
 				<p>
-	    			<span style="font-size: 150%;color: whitesmoke;font-family: fantasy;"><a href="?page=order">Order Sekarang</a></span>						
+	    			<span style="font-size: 150%;color: whitesmoke;font-family: fantasy;"><a href="?page=order">Order Sekarang</a></span> | 
+	    			<span style="font-size: 150%;color: whitesmoke;font-family: fantasy;"><a href="?page=report">Report</a></span>						
 				</p>
 				<?php } ?>
 			</td></tr>
