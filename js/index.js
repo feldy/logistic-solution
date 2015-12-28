@@ -1,3 +1,13 @@
+function onChangePaket(item) {
+	// var value = $("#layanan").combobox("getValue");
+	// console.log('value', value);
+	if (item.value == "cair" || item.value == "kendaraan") {
+		$("#layanan").combobox('setValue', "darat");
+		$("#layanan").combobox('disable');
+	} else {
+		$("#layanan").combobox('enable');
+	}
+}
 function onChangeTujuan(value) {
 	var harga = value.harga;
 	var lama = value.lama_hari;

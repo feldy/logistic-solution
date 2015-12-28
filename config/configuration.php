@@ -1,6 +1,8 @@
 <?php
-	mysql_connect("localhost","root","admin");
-	mysql_select_db("db_logistic");
+	// $conn = mysqli_connect("mysql.idhostinger.com","u246025990_lg","123456");
+	$conn = mysqli_connect("localhost","root","");
+	mysqli_select_db($conn, 'db_logistic') or die(mysqli_error($conn));
+
 
 	function gen_uuid() {
 	    return sprintf( '%04x%04x-%04x-%04x-%04x-%04x%04x%04x',

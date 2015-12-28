@@ -1,8 +1,8 @@
 <?php
 	$id = $_GET['id']; 
 
-		$a = mysql_query("SELECT * FROM m_pengiriman where id = '$id'") or die(mysql_error());
-		$ar = mysql_fetch_array($a);
+		$a = mysqli_query($conn, "SELECT * FROM m_pengiriman where id = '$id'") or die(mysql_error());
+		$ar = mysqli_fetch_array($a, MYSQLI_ASSOC);
 
 		$charge = $ar['berat_barang'];
 		$tujuan = $ar['tujuan'];

@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
+		<title>LOGISTIC Solution</title>
 		<link rel="stylesheet" type="text/css" href="lib/jquery-easyui-1.4.4/themes/gray/easyui.css">
 	    <link rel="stylesheet" type="text/css" href="lib/jquery-easyui-1.4.4/themes/icon.css">
 		<script type="text/javascript" src="lib/jquery-easyui-1.4.4/jquery.min.js"></script>
@@ -29,6 +30,10 @@
 							include 'form/print.php';
 						} else if ($_GET['page'] == "order") {
 							include 'form/order.php';
+						} else if ($_GET['page'] == "login") {
+							include 'form/login.php';
+						} else if ($_GET['page'] == "update_harga") {
+							include 'form/update_harga.php';
 						} else {
 							echo '<span style="font-size: 150%;">404 Not Found<hr></span>';
 						}
@@ -46,7 +51,17 @@
 				<p>5. Untuk Request Order Pengambilan Barang Harap Menghubungi Call Center Kami.</p>
 				<p>
 	    			<span style="font-size: 150%;color: whitesmoke;font-family: fantasy;"><a href="?page=order">Order Sekarang</a></span> | 
-	    			<span style="font-size: 150%;color: whitesmoke;font-family: fantasy;"><a href="?page=report">Report</a></span>						
+	    			<span style="font-size: 150%;color: whitesmoke;font-family: fantasy;"><a href="?page=report">Report</a></span>	|
+	    			<?php
+	    				session_start();
+	    				if (!empty($_SESSION['username']) && !empty($_SESSION['password'])) {
+	    					echo '<span style="font-size: 150%;color: whitesmoke;font-family: fantasy;"><a href="?page=update_harga">Update Harga</a></span> | ';
+	    					echo '<span style="font-size: 150%;color: whitesmoke;font-family: fantasy;"><a href="system/logout.php">Logout</a></span>';
+	    				} else {
+	    					echo '<span style="font-size: 150%;color: whitesmoke;font-family: fantasy;"><a href="?page=login">Login</a></span>';
+	    				}	
+	    			?>					
+	    									
 				</p>
 				<?php } ?>
 			</td></tr>

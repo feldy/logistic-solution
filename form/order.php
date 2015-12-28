@@ -62,9 +62,11 @@
 		            <tr>
 		                <td>Jenis Barang:</td>
 		                <td>
-		                	<select class="easyui-combobox" name="paket" id="paket" style="width:200px;">
+		                	<select class="easyui-combobox" name="paket" id="paket" style="width:200px;" data-options="onSelect: onChangePaket" >
 		                    	<option value="paket" <?php if ($paket == "paket") { echo 'selected';} ?>>Paket</option>
 		                    	<option value="dokumen" <?php if ($paket == "dokumen") { echo 'selected';} ?>>Dokumen</option>
+		                    	<option value="cair" <?php if ($paket == "cair") { echo 'selected';} ?>>Cair</option>
+		                    	<option value="kendaraan" <?php if ($paket == "kendaraan") { echo 'selected';} ?>>Kendaraan</option>
 		                    </select>
 		                
 		                </td>
@@ -82,11 +84,11 @@
 		                <td>Tujuan:</td>
 		                <td>
 		                	<input class="easyui-combobox" name="tujuan" value="<?php echo $tujuan;?>" onchange="onChangeTujuan" id="tujuan" style="width:200px;" data-options="
-				                url: 'data/tujuan.json',
+				                url: 'system/getData.php',
 				                method: 'get',
 				                valueField:'text',
 				                textField:'text',
-				                groupField:'group',
+				                groupField:'grup',
 				                onSelect: onChangeTujuan
 				            ">
 		                </td>
@@ -293,6 +295,7 @@
 	         <div style="text-align:center;padding:5px">
 			        <button class="easyui-linkbutton" type="button">Clear</button>
 					<button class="easyui-linkbutton" type="submit" name="step" value="10" >Simpan</button>
+					<button class="easyui-linkbutton" type="button" onclick='window.location.href = "index.php"' >Kembali Ke Menu Utama</button>
 			    </div>
 	    </div>
 	    </div>

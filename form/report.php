@@ -3,11 +3,11 @@
 	<hr>
 </span>
 <?php 
-	$xxx = mysql_query("SELECT count(*), sum(berat_barang), sum(asuransi), sum(packing_kayu), sum((berat_barang*harga_per_kilo)+asuransi+packing_kayu) FROM m_pengiriman where MONTH(tanggal) = MONTH(now())") or die(mysql_error());
-	$yyy = mysql_fetch_array($xxx);
+	$xxx = mysqli_query($conn, "SELECT count(*), sum(berat_barang), sum(asuransi), sum(packing_kayu), sum((berat_barang*harga_per_kilo)+asuransi+packing_kayu) FROM m_pengiriman where MONTH(tanggal) = MONTH(now())") or die(mysql_error());
+	$yyy = mysqli_fetch_array($xxx, MYSQLI_NUM);
 
-	$xxx1 = mysql_query("SELECT tujuan, count(tujuan) as jml FROM m_pengiriman where MONTH(tanggal) = MONTH(now()) group by tujuan order by jml desc LIMIT 1") or die(mysql_error());
-	$yyy2 = mysql_fetch_array($xxx1);
+	$xxx1 = mysqli_query($conn, "SELECT tujuan, count(tujuan) as jml FROM m_pengiriman where MONTH(tanggal) = MONTH(now()) group by tujuan order by jml desc LIMIT 1") or die(mysql_error());
+	$yyy2 = mysqli_fetch_array($xxx1, MYSQLI_NUM);
 	
 ?>
 <table width="100%" border="0">
